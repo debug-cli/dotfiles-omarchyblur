@@ -36,10 +36,4 @@ sudo sed -i -E "s/^(MODULES=\\()/\\1${NVIDIA_MODULES} /" "$MKINITCPIO_CONF"
 sudo sed -i -E 's/  +/ /g' "$MKINITCPIO_CONF"
 
 log_success "mkinitcpio.conf updated"
-
-# Regenerate initramfs
-log_info "Regenerating initramfs..."
-spinner "Regenerating initramfs..." sudo mkinitcpio -P
-log_success "Initramfs regenerated"
-
 log_success "NVIDIA configuration complete!"
